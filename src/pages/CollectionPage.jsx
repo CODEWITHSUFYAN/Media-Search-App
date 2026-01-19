@@ -13,24 +13,24 @@ const CollectionPage = () => {
   };
 
   return (
-    <div className="overflow-auto px-9 py-6">
+    <div className="overflow-auto px-4 sm:px-6 lg:px-9 py-4 sm:py-6 min-h-screen bg-gray-50">
       {collection.length > 0 ? (
-        <div className="flex justify-between mb-6">
-          <h2 className="text-3xl font-semibold">Your Collection</h2>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800">Your Collection</h2>
           <button
             onClick={() => {
               clearAll();
             }}
-            className="active:scale-95 transition cursor-pointer bg-red-600 px-8 py-3 text-lg font-medium rounded"
+            className="active:scale-95 transition-all duration-200 cursor-pointer bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-medium rounded w-full sm:w-auto"
           >
             Clear Collection
           </button>
         </div>
       ) : (
-        <h2 className="text-3xl font-semibold py-10 text-gray-300 text-center">Collection is Empty</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold py-10 sm:py-16 lg:py-20 text-gray-400 text-center">Collection is Empty</h2>
       )}
 
-      <div className="flex flex-wrap w-full justify-start gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 w-full">
         {collection.map((item, index) => {
           return (
             <div key={index}>

@@ -57,15 +57,30 @@ const ResultGrid = () => {
   }, [query, activeTab , dispatch]);
 
   if (error) {
-    return <h1>Error</h1>;
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-600 mb-4">⚠️ Error</h1>
+          <p className="text-base sm:text-lg text-gray-600">{error}</p>
+        </div>
+      </div>
+    );
   }
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700">Loading...</h1>
+          <p className="text-sm sm:text-base text-gray-500 mt-2">Searching for {activeTab}...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-wrap w-full justify-between gap-6 overflow-auto px-9">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 w-full px-4 sm:px-6 lg:px-9 py-6">
       {results.map((item, index) => {
         return <div key={index}>
           <ResultCard item={item}/>
